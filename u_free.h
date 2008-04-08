@@ -1,0 +1,14 @@
+extern int free_Fonts (void);
+extern int free_GCs (void);
+extern int free_arc (F_arc **list);
+extern int free_compound (F_compound **list);
+extern int free_ellipse (F_ellipse **list);
+extern int free_line (F_line **list);
+extern int free_linestorage (F_line *l);
+extern int free_linkinfo (F_linkinfo **list);
+extern int free_picture_entry (struct _pics *picture);
+extern int free_points (F_point *first_point);
+extern int free_sfactors (F_sfactor *sf);
+extern int free_spline (F_spline **list);
+extern int free_splinestorage (F_spline *s);
+extern int free_text (F_text **list);

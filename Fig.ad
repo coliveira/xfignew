@@ -1,0 +1,557 @@
+!Don't change the following string - xfig uses it to determine
+! if you have the newest app-defaults files installed
+
+Fig.version:			3.2.5-alpha6
+
+! some sample settings you may want to change
+
+! The following fixes a problem that some window managers have
+! with xfig continually resizing itself
+
+Fig*AllowShellResize: false
+
+! Image editor - can edit imported image
+Fig.image_editor:		xv
+
+! name of ghostscript (not ghostview)
+Fig.ghostscript:		gs
+
+! Browser - put your favorite browser here.  
+! 		This is for viewing the xfig html reference.
+! For netscape, this command will open the help pages in a running netscape,
+!     or start a new netscape if one isn't already running
+Fig.browser:	netscape -remote 'openFile(%f)' || netscape %f
+
+! pdfviewer - put your favorite pdf viewer here.  
+!		This is for viewing the xfig how-to guide and man pages
+Fig.pdfviewer:			acroread %f
+
+! Spell check program - put your favorite spelling check program here.
+!		It must write the misspelled words to standard output.
+
+Fig.spellcheckcommand:	spell %f
+
+! delay before spinner automatically counts when pressed (milliseconds)
+Fig.spinner_delay:		1000
+! rate at which spinner counts (milliseconds between counting)
+Fig.spinner_rate:		150
+
+! font for the buttons
+Fig.buttonFont:			6x13
+
+! font for the rulers and message window
+Fig.normalFont:			6x13
+
+! font for the file name and popup query widgets
+Fig.boldFont:			8x13bold
+
+! font for the ruler numbers
+Fig*topruler.font:		6x13
+Fig*sideruler.font:		6x13
+
+! font for the units box in the corner where the rulers meet
+Fig*unitbox.font:		6x13
+
+! font for everything else
+Fig*Font:			7x13bold
+
+! filename mask for the file popup browser
+Fig*file_panel*mask*string:	*.fig *.fig.gz *.fig.[Zz]
+
+! default export language
+Fig.exportLanguage:		eps
+
+! filename mask for the image popup browser
+Fig*browse_panel*mask*string:	*.gif* *.jpg* *.jpeg* *.pcx* *.png* *.ppm* *.tif* *.xpm* *.xbm* *.ps* *.eps* *.pdf*
+
+! printer name
+! If the following resource is NOT set, xfig will use the PRINTER 
+! shell environment variable for the printer name
+!Fig*printer*string:		ps
+
+! printer job parameters
+! If you are running a SYSV system your print command may need -T PS.  If so,
+! uncomment the following.  You may want to add any print params here anyway.
+! If you want the filename to be sent to the printer for the "Job" parameter
+! you may add -J %f to the job_params string.
+
+!Fig*job_params*string:		-T PS
+
+! Set the maximum number of colors to use for color images (EPS,GIF,XPM)
+! xfig will try to install a private colormap if needed to get this
+! nubmer of colors UNLESS -dontswitchcmap (resource Fig.dont_switch_cmap)
+! is set.
+Fig.max_image_colors:		80
+
+! information balloon settings
+! show help balloons
+Fig.showballoons:		true
+! delay (milliseconds) before popping up info balloon 
+Fig*balloon_delay:		500
+
+! Spacing between buttons
+Fig.internalborderwidth:	1
+
+! These bindings make text entry editing more like modern systems
+! instead of the outdated Athena widget bindings
+
+*Text*translations: #override \
+		<Key>Delete:	delete-next-character() \n\
+		<Key>End:	end-of-line() \n\
+		<Key>Home:	beginning-of-line() 
+
+! If you are using the 3d Athena widget set (which looks very nice)
+! and you want the scrollbars to be 3d (even though they look funny)
+! then comment out the following three resources.
+! NOTE:
+! There are two names for top/bottom shadow colors (e.g. topShadow and 
+! topShadowPixel) because the resources changed in version 1.1 of Xaw3d.
+! (Version 1.1 uses xxxShadowPixel).
+! I include both for compatibility.  Be sure to change both values when
+! modifying them.
+
+	Fig*horizontal.shadowWidth: 0
+	Fig*horizontal.topShadowPixel: black
+	Fig*horizontal.bottomShadowPixel: white
+	Fig*horizontal.topShadow: black
+	Fig*horizontal.bottomShadow: white
+
+! the following is done so the widget set doesn't try to make shades of
+! the scrollbar shadows (even though the width is 0 it takes more colors)
+	Fig*Scrollbar.shadowWidth: 0
+	Fig*Scrollbar.topShadow: black
+	Fig*Scrollbar.bottomShadow: white
+	Fig*Scrollbar.topShadowPixel: black
+	Fig*Scrollbar.bottomShadowPixel: white
+
+! this is for the standard color buttons in the color panel
+	Fig*stdColor.shadowWidth: 2
+	Fig*stdColor.topShadow: black
+	Fig*stdColor.bottomShadow: white
+	Fig*stdColor.topShadowPixel: black
+	Fig*stdColor.bottomShadowPixel: white
+
+! turn off any shadows for the user color cells
+	Fig*colorMemory.shadowWidth: 0
+
+! You may need or want to adjust the highlight thickness for the mode
+! and indicator panels depending on the results.  If it is too thick
+! it will erase part of the button graphics.
+	Fig*mode_panel*highlightThickness: 1
+	Fig*ind_panel.ind_box.button_form.button.highlightThickness: 1
+! Same for the popup panels from the indicator panel
+	Fig*set_indicator_panel*Command.highlightThickness: 1
+
+! If you use the 3D Athena widget set and the small icons for the mode panel
+! (because you have a small screen; see Imakefile) you may want to reduce
+! the shadow width to 1 or 0.  Uncomment the following in that case:
+!	Fig*mode_panel*shadowWidth: 1
+
+! The following is for the update marker in the upper-right corner of the
+! indicator buttons.  You may not want any highlight thickness because
+! the boxes are so small.
+	Fig*ind_panel.ind_box.button_form.update.highlightThickness: 0
+
+! This sets the shadows for the spinner arrows
+	Fig*spinup.shadowWidth:   2
+	Fig*spindown.shadowWidth: 2
+
+! This gets rid of that funny black line that sometimes borders the canvas
+
+	Fig*canvas.shadowWidth:  0
+
+!if on monochrome server, or no Fig-color app-defaults file
+!  This background resource shows between the buttons like a border
+	Fig*mode_panel.background:	black
+	Fig*mode_panel.foreground:	black
+
+! Specify a private Compose key database file.  If this resource contains a "/"
+! then the wired-in name of the xfig global directory won't be prefixed to it.
+! An initial "~/" is replaced by the value of "$HOME/".
+!
+!Fig*keyFile:	~/.xfig.Compose-key
+
+! If xfig is compiled with I18N option, you may want to uncomment following line.
+!
+!Fig.international: true
+
+! Note that you shouldn't remove the following "Fig*international: false".  
+! It must be there to cancel any *international: true that may defined via xrdb.
+! This can cause problems on xfig even if the i18n facility is used.
+
+Fig*international: false
+
+! Uncomment following lines if you use i18n text.
+!
+!Fig*edit_panel*Text_text*international: true
+!Fig*edit_panel*inputMethod: xim
+
+Fig.translations: #override \n\
+         <Key>: \n\
+         <KeyUp>:
+
+! keyboard accelerators
+
+Fig*accelerators: \
+	Meta<Key>n: New() \n\
+	Alt<Key>n:  New() \n\
+	Meta<Key>o: OpenFile() \n\
+	Alt<Key>o:  OpenFile() \n\
+	Meta<Key>m: MergeFile() \n\
+	Alt<Key>m:  MergeFile() \n\
+	Meta<Key>z: PopupDigitize() \n\
+	Alt<Key>z:  PopupDigitize() \n\
+	Meta<Key>s: DoSave() \n\
+	Alt<Key>s:  DoSave() \n\
+	Meta<Key>a: SaveAs() \n\
+	Alt<Key>a:  SaveAs() \n\
+	Shift Meta<Key>x: ExportFile() \n\
+	Shift Alt<Key>x:  ExportFile() \n\
+	Meta<Key>x: PopupExport() \n\
+	Alt<Key>x:  PopupExport() \n\
+	Shift Meta<Key>p: PrintFile() \n\
+	Shift Alt<Key>p:  PrintFile() \n\
+	Meta<Key>p: PopupPrint() \n\
+	Alt<Key>p:  PopupPrint() \n\
+	Meta<Key>q: Quit() \n\
+	Alt<Key>q:  Quit() \n\
+	Shift <Key>u: PopupUnits() \n\
+	Meta<Key>u: Undo() \n\
+	Alt<Key>u:  Undo() \n\
+	Meta<Key>t: Paste() \n\
+	Alt<Key>t:  Paste() \n\
+	Meta<Key>i: Search() \n\
+	Alt<Key>i:  Search() \n\
+	Meta<Key>k: SpellCheck() \n\
+	Alt<Key>k:  SpellCheck() \n\
+	Meta<Key>g: PopupGlobals() \n\
+	Alt<Key>g:  PopupGlobals() \n\
+	Meta<Key>d: DeleteAll() \n\
+	Alt<Key>d:  DeleteAll() \n\
+	Ctrl<Key>l: Redraw() \n\
+	Meta<Key>r: Redraw() \n\
+	Alt<Key>r:  Redraw() \n\
+	Meta<Key>c: ChangeOrient() \n\
+	Alt<Key>c:  ChangeOrient() \n\
+	Shift<Key>z: ZoomIn() \n\
+	Ctrl<Key>z: ZoomFit() \n\
+	<Key>z: ZoomOut()\n\
+	Ctrl<Key>y: ShowNamedStyles() \n\
+	Meta<Key>b: ToggleShowBorders() \n\
+	Alt<Key>b:  ToggleShowBorders() \n\
+	Meta<Key>y: ToggleShowBalloons() \n\
+	Alt<Key>y:  ToggleShowBalloons() \n\
+	Meta<Key>l: ToggleShowLengths() \n\
+	Alt<Key>l:  ToggleShowLengths()
+
+! Translations for when File menu is popped up
+Fig*commands*File*translations: #augment \n\
+	<Leave>: XtMenuPopdown(filemenu) \n\
+	<Motion>: highlight() \n\
+	<Key>f: \n\
+	Meta<Key>e: XtMenuPopdown(filemenu) PlaceMenu(editmenu) xMenuPopup(editmenu) \n\
+	Meta<Key>v: XtMenuPopdown(filemenu) PlaceMenu(viewmenu) xMenuPopup(viewmenu) \n\
+	Meta<Key>h: XtMenuPopdown(filemenu) PlaceMenu(helpmenu) xMenuPopup(helpmenu) \n\
+	<Key>n: XtMenuPopdown(filemenu) New() \n\
+	<Key>o: XtMenuPopdown(filemenu) OpenFile() \n\
+	<Key>m: XtMenuPopdown(filemenu) MergeFile() \n\
+	<Key>d: XtMenuPopdown(filemenu) PopupDigitize() \n\
+	<Key>s: XtMenuPopdown(filemenu) DoSave() \n\
+	<Key>a: XtMenuPopdown(filemenu) SaveAs() \n\
+	<Key>e: XtMenuPopdown(filemenu) PopupExport() \n\
+	<Key>p: XtMenuPopdown(filemenu) PopupPrint() \n\
+	<Key>x: XtMenuPopdown(filemenu) Quit() \n\
+	<Key>1: XtMenuPopdown(filemenu) LoadRecent(1) \n\
+	<Key>2: XtMenuPopdown(filemenu) LoadRecent(2) \n\
+	<Key>3: XtMenuPopdown(filemenu) LoadRecent(3) \n\
+	<Key>4: XtMenuPopdown(filemenu) LoadRecent(4) \n\
+	<Key>5: XtMenuPopdown(filemenu) LoadRecent(5) \n\
+	<Key>6: XtMenuPopdown(filemenu) LoadRecent(6) \n\
+	<Key>7: XtMenuPopdown(filemenu) LoadRecent(7) \n\
+	<Key>8: XtMenuPopdown(filemenu) LoadRecent(8) \n\
+	<Key>9: XtMenuPopdown(filemenu) LoadRecent(9) \n\
+	<Key>:XtMenuPopdown(filemenu) 
+
+Fig*commands*File*accelerators: \
+	Meta<Key>f: PlaceMenu(filemenu)xMenuPopup(filemenu) \n\
+	Alt<Key>f:  PlaceMenu(filemenu)xMenuPopup(filemenu)
+
+! Translations for when Edit menu is popped up
+Fig*commands*Edit*translations: #augment \n\
+	<Motion>: highlight() \n\
+	<Key>e: \n\
+	Meta<Key>f: XtMenuPopdown(editmenu) PlaceMenu(filemenu) xMenuPopup(filemenu) \n\
+	Meta<Key>v: XtMenuPopdown(editmenu) PlaceMenu(viewmenu) xMenuPopup(viewmenu) \n\
+	Meta<Key>h: XtMenuPopdown(editmenu) PlaceMenu(helpmenu) xMenuPopup(helpmenu) \n\
+	<Key>u: XtMenuPopdown(editmenu) Undo() \n\
+	<Key>p: XtMenuPopdown(editmenu) Paste() \n\
+	<Key>t: XtMenuPopdown(editmenu) PasteCanv() \n\
+	<Key>f: XtMenuPopdown(editmenu) Search() \n\
+	<Key>s: XtMenuPopdown(editmenu) SpellCheck() \n\
+	<Key>d: XtMenuPopdown(editmenu) DeleteAll() \n\
+	<Key>g: XtMenuPopdown(editmenu) PopupGlobals() \n\
+	<Key>n: XtMenuPopdown(editmenu) PopupUnits() \n\
+	<Key>: XtMenuPopdown(editmenu)
+
+Fig*commands*Edit*accelerators: \
+	Meta<Key>e: PlaceMenu(editmenu)xMenuPopup(editmenu) \n\
+	Alt<Key>e: PlaceMenu(editmenu)xMenuPopup(editmenu)
+
+Fig*commands*View*translations: #augment \n\
+	<Motion>: highlight() \n\
+	<Key>v: \n\
+	Meta<Key>f: XtMenuPopdown(viewmenu) PlaceMenu(filemenu) xMenuPopup(filemenu) \n\
+	Meta<Key>e: XtMenuPopdown(viewmenu) PlaceMenu(editmenu) xMenuPopup(editmenu) \n\
+	Meta<Key>h: XtMenuPopdown(viewmenu) PlaceMenu(helpmenu) xMenuPopup(helpmenu) \n\
+	<Key>s: XtMenuPopdown(viewmenu) ShowNamedStyles() \n\
+	<Key>r: XtMenuPopdown(viewmenu) Redraw() \n\
+	<Key>t: XtMenuPopdown(viewmenu) ChangeOrient() \n\
+	<Key>i: XtMenuPopdown(viewmenu) ZoomIn() \n\
+	<Key>o: XtMenuPopdown(viewmenu) ZoomOut() \n\
+	<Key>f: XtMenuPopdown(viewmenu) ZoomFit() \n\
+	<Key>u: XtMenuPopdown(viewmenu) Unzoom() \n\
+	<Key>p: XtMenuPopdown(viewmenu) PanOrigin() \n\
+	<Key>c: XtMenuPopdown(viewmenu) PopupCharmap() \n\
+	<Key>d: XtMenuPopdown(viewmenu) ToggleShowDepths() \n\
+	<Key>n: XtMenuPopdown(viewmenu) ToggleShowBalloons() \n\
+	<Key>b: XtMenuPopdown(viewmenu) ToggleShowBorders() \n\
+	<Key>l: XtMenuPopdown(viewmenu) ToggleShowLengths() \n\
+	<Key>a: XtMenuPopdown(viewmenu) ToggleAutoRefresh() \n\
+	<Key>v,<Key>v: XtMenuPopdown(viewmenu) ToggleShowVertexnums() \n\
+	<Key>: XtMenuPopdown(viewmenu)
+
+Fig*commands*View*accelerators: \
+	Meta<Key>v: PlaceMenu(viewmenu)xMenuPopup(viewmenu) \n\
+	Alt<Key>v:  PlaceMenu(viewmenu)xMenuPopup(viewmenu)
+
+Fig*commands*Help*translations: #augment \n\
+	<Motion>: highlight() \n\
+	Meta<Key>h: \n\
+	Meta<Key>f: XtMenuPopdown(helpmenu) PlaceMenu(filemenu) xMenuPopup(filemenu) \n\
+	Meta<Key>e: XtMenuPopdown(helpmenu) PlaceMenu(editmenu) xMenuPopup(editmenu) \n\
+	Meta<Key>v: XtMenuPopdown(helpmenu) PlaceMenu(viewmenu) xMenuPopup(viewmenu) \n\
+	<Key>x: XtMenuPopdown(helpmenu) RefMan() \n\
+	<Key>m: XtMenuPopdown(helpmenu) Man() \n\
+	<Key>h: XtMenuPopdown(helpmenu) HowToGuide() \n\
+	<Key>a: XtMenuPopdown(helpmenu) AboutXfig() \n\
+	<Key>: XtMenuPopdown(helpmenu)
+
+Fig*commands*Help*accelerators: \
+	Meta<Key>h: PlaceMenu(helpmenu)xMenuPopup(helpmenu) \n\
+	Alt<Key>h:  PlaceMenu(helpmenu)xMenuPopup(helpmenu)
+
+Fig*set_nval_panel*accelerators: \
+	<Key>Escape: QuitNval()
+Fig*set_choice_panel*accelerators: \
+	<Key>Escape: QuitChoice()
+Fig*set_dimline_panel*accelerators: \
+	<Key>Escape: QuitDimline()
+
+! file popop accelerators
+Fig*file_panel*accelerators: \
+	<Key>Escape: CancelFile() \n\
+	Meta<Key>c: CancelFile() \n\
+	Alt<Key>c: CancelFile() \n\
+	Meta<Key>q: CancelFile() \n\
+	Alt<Key>q: CancelFile() \n\
+	Meta<Key>r: Rescan() \n\
+	Alt<Key>r: Rescan()
+
+! export popop accelerators
+Fig*export_panel*accelerators: \
+	<Key>Escape: CancelExport() \n\
+	Meta<Key>c: CancelExport() \n\
+	Alt<Key>c: CancelExport() \n\
+	Meta<Key>q: CancelExport() \n\
+	Alt<Key>q: CancelExport() \n\
+	Meta<Key>r: Rescan() \n\
+	Alt<Key>r: Rescan()
+
+! print popup accelerators
+Fig*print_panel*accelerators: \
+	<Key>Escape: Dismiss() \n\
+	Meta<Key>c: Dismiss() \n\
+	Alt<Key>c: Dismiss() \n\
+	Meta<Key>q: Dismiss() \n\
+	Alt<Key>q: Dismiss() \n\
+	Meta<Key>d: Dismiss() \n\
+	Alt<Key>d: Dismiss() \n\
+	Meta<Key>b: PrintBatch() \n\
+	Alt<Key>b: PrintBatch() \n\
+	Meta<Key>x: ClearBatch() \n\
+	Alt<Key>x: ClearBatch() \n\
+	Meta<Key>p: Print() \n\
+	Alt<Key>p: Print()
+
+! edit popop accelerators
+Fig*edit_panel*accelerators: \
+	<Key>Escape: CancelEdit() \n\
+	Meta<Key>c: CancelEdit() \n\
+	Alt<Key>c: CancelEdit() \n\
+	Meta<Key>q: CancelEdit() \n\
+	Alt<Key>q: CancelEdit()
+
+! unit popup accelerators
+Fig*unit_panel*accelerators: \
+	<Key>Escape: QuitUnits() \n\
+	Meta<Key>c: QuitUnits() \n\
+	Alt<Key>c: QuitUnits() \n\
+	Meta<Key>q: QuitUnits() \n\
+	Alt<Key>q: QuitUnits() \n\
+	Meta<Key>s: SetUnits() \n\
+	Alt<Key>s: SetUnits() \n\
+	<Key>Return: SetUnits()
+
+Fig*search_panel*accelerators: \
+	<Key>Escape: QuitSearchPanel() \n\
+	Meta<Key>c: QuitSearchPanel() \n\
+	Alt<Key>c: QuitSearchPanel() \n\
+	Meta<Key>q: QuitSearchPanel() \n\
+	Alt<Key>q: QuitSearchPanel() \n\
+	<Key>Return: SearchText()
+
+! found text popup accelerators
+Fig*found_text_panel*accelerators: \
+	<Key>Escape: QuitFoundTextPanel() \n\
+	Meta<Key>c: QuitFoundTextPanel() \n\
+	Alt<Key>c: QuitFoundTextPanel() \n\
+	Meta<Key>q: QuitFoundTextPanel() \n\
+	Alt<Key>q: QuitFoundTextPanel()
+
+! this makes the accelerators work in the text part of the found text panel
+Fig*found_text_panel*Text*translations: #override \
+	<Key>Escape: QuitFoundTextPanel() \n\
+	Meta<Key>c: QuitFoundTextPanel() \n\
+	Alt<Key>c: QuitFoundTextPanel() \n\
+	Meta<Key>q: QuitFoundTextPanel() \n\
+	Alt<Key>q: QuitFoundTextPanel()
+
+! spellcheck popup accelerators
+Fig*spell_check_panel*accelerators: \
+	<Key>Escape: QuitSpellPanel() \n\
+	Meta<Key>c: QuitSpellPanel() \n\
+	Alt<Key>c: QuitSpellPanel() \n\
+	Meta<Key>q: QuitSpellPanel() \n\
+	Alt<Key>q: QuitSpellPanel()
+
+! global settings popup
+Fig*global_panel*accelerators: \
+	<Key>Escape: DismissGlobal() \n\
+	Meta<Key>c: DismissGlobal() \n\
+	Alt<Key>c: DismissGlobal() \n\
+	Meta<Key>q: DismissGlobal() \n\
+	Alt<Key>q: DismissGlobal()
+
+! Acceleraters for object creation/editing
+
+Fig*mode_panel*accelerators: \
+	Ctrl<Key>a: ModeAddPoint() \n\
+	Shift<Key>a: ModeArrow() \n\
+	<Key>a: ModeAlign() \n\
+	Shift<Key>b: ModeArcBox() \n\
+	<Key>b: ModeBox() \n\
+	Ctrl<Key>c: ModeCopyObject() \n\
+	Shift<Key>c: ModeEllipseD() \n\
+	<Key>c: ModeEllipseR() \n\
+	Shift<Key>d: ModeDeletePoint() \n\
+	<Key>d: ModeDeleteObject() \n\
+	Ctrl<Key>e: ModeEditObject() \n\
+	Shift<Key>e: ModeEllipseD() \n\
+	<Key>e: ModeEllipseR() \n\
+	Shift<Key>f: ModeFlipObjectLR() \n\
+	<Key>f: ModeFlipObjectUD() \n\
+	Ctrl<Key>g: ModeAnglemeas() \n\
+	Shift<Key>g: ModeBreakCompound() \n\
+	<Key>g: ModeCompound() \n\
+	Shift<Key>i: ModeClIntSpline() \n\
+	<Key>i: ModeIntSpline() \n\
+	<Key>j: ModeJoinSplit() \n\
+	Shift<Key>l: ModePopupLibrary() \n\
+	<Key>l: ModeLine() \n\
+	Ctrl<Key>m: ModeAreameas() \n\
+	Shift<Key>m: ModeMovePoint() \n\
+	<Key>m: ModeMoveObject() \n\
+	Ctrl<Key>n: ModeLenmeas() \n\
+	<Key>n: ModeTangent() \n\
+	<Key>o: ModeOpenCompound() \n\
+	Ctrl<Key>p: ModePIC() \n\
+	Shift<Key>p: ModeRegPoly() \n\
+	<Key>p: ModePoly() \n\
+	Ctrl<Key>r: ModeRotateObjectCW() \n\
+	Shift<Key>r: ModeRotateObjectCCW() \n\
+	<Key>r: ModeArc() \n\
+	Ctrl<Key>s: ModeScale() \n\
+	Shift<Key>s: ModeClSpline() \n\
+	<Key>s: ModeSpline() \n\
+	<Key>t: ModeText() \n\
+	<Key>u: ModeUpdateObject() \n\
+	<Key>v: ModeConvertObject() \n\
+	<Key>x: ModeChopObject()
+
+! to make the color selection menu in the popup editor work
+Fig*color_menu_form*Command.translations: \
+	<EnterWindow>:	highlight() \n\
+	<LeaveWindow>:	reset() \n\
+	<BtnUp>:	set() notify() unset()
+
+! make divider entry in menus have no 3d look so the user knows it
+! is not selectable
+
+Fig*menu_divider.font:			7x13
+Fig*menu_divider.justify:		center
+Fig*menu_divider.topShadowContrast:	0
+Fig*menu_divider.bottomShadowContrast:	0
+
+
+! ----------------------------------------------------------------
+! Wheel-mouse SUPPORT:
+! written by T.Sato <VEF00200@nifty.ne.jp>
+
+! switch setting via wheel rotation
+!
+Fig*ind_panel*Command.translations: #override \
+    <Btn4Down>:PressMiddle()\n\
+    <Btn4Up>:ReleaseMiddle()\n\
+    <Btn5Down>:PressRight()\n\
+    <Btn5Up>:ReleaseRight()
+
+! up/down numeric value via wheel rotation
+!
+Fig*spinner_form*Text.translations: #override \
+    <Btn4Down>: SpinnerUpDown(-) \n\
+    <Btn5Down>: SpinnerUpDown(+) \n\
+    <Btn4Up>: SpinnerUpDown(-) \n\
+    <Btn5Up>: SpinnerUpDown(+)
+
+Fig*spinner_form*Command.translations: #override \
+    <BtnDown>:	set() \n\
+    <BtnUp>:	notify() unset()
+
+! popup drawing/editing menu via wheel rotation.
+! if Control is pressed, zoom in/zoom out via wheel rotation.
+!
+Fig*canvas.translations: #override \
+    Shift<Btn4Down>: PopupModePanel(draw) \n\
+    Shift<Btn5Down>: PopupModePanel(edit) \n\
+    Ctrl<Key>k:  PopupKeyboardPanel(edit)
+
+Fig*draw_menu*translations: #override \
+    <Message>WM_PROTOCOLS: PopdownModePanel() \n\
+    <Btn5Down>: PopdownModePanel()
+
+Fig*edit_menu*translations: #override \
+    <Message>WM_PROTOCOLS: PopdownModePanel() \n\
+    <Btn4Down>: PopdownModePanel()
+
+Fig*draw_menu*highlightThickness: 1
+Fig*edit_menu*highlightThickness: 1
+
+! do not want to popup SimpleMenu via wheel rotation
+!
+Fig*MenuButton.translations: #override \
+    <Btn4Down>: \n\
+    <Btn5Down>:
+
+! END OF Wheel-mouse resources
+! ----------------------------------------------------------------
+

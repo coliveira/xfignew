@@ -1,0 +1,639 @@
+===============================================================
+XFIG - Facility for Interactive Generation of figures under X11
+===============================================================
+
+Xfig is a menu-driven tool that allows the user to draw and manipulate objects
+interactively in an X window.  The resulting pictures can be saved, printed
+on postscript printers or converted to a variety of other formats (e.g. to
+allow inclusion in LaTeX documents).
+
+This file contains some notes about installing xfig, the directory
+'Libraries/Examples' contains some example figures and the 'Doc' directory
+contains some further documentation including the manual in troff -man format
+and PostScript.
+
+You also need to get the TransFig package which contains fig2dev, the
+postprocessor that converts Fig files to various output formats such as
+PostScript (and EPS), PNG, GIF, LaTeX, etc.
+
+Xfig and the TransFig package are available from:
+	http://www.xfig.org/xfigdist
+	from any CTAN machine, e.g. ftp://ftp.tex.ac.uk/pub/archive/graphics
+
+The xfig distribution includes some library of Fig objects, which are available
+via the library object drawing mode.
+Included are libraries such as electrical parts, logic symbols, music symbols,
+computer clip art, flow charting symbols, network symbols, and some buildings.
+It is hoped that users will contribute to and enhance these libraries for the
+benefit of the xfig user community.
+
+Oh, and the $64,000 question: Yes, xfig is Year 2000 compliant.
+
+***************************************************************************
+Please send email about any questions/bug fixes/contributions etc. about
+TransFig or xfig to bvsmith@lbl.gov.
+
+Brian V. Smith
+Lawrence Berkeley National Laboratory
+bvsmith@lbl.gov
+***************************************************************************
+
+Note that although I work at Lawrence Berkeley National Laboratory (LBNL)
+I don't speak for LBNL nor do I represent LBNL with respect to my work on
+TransFig and xfig, nor does LBL make any representations about the suitability
+of this software for any purpose.
+
+Here is the legal part:
+
+THE LAWRENCE BERKELEY NATIONAL LABORATORY DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS, IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY SPECIAL,
+INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE
+OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+
+***************************************************************************
+NEW COPYRIGHT/PERMISSION NOTICE:
+
+The xfig copyright and permission notice has changed (again) slightly in
+version 3.2.5.  It now states that:
+
+	FIG : Facility for Interactive Generation of figures
+	Copyright (c) 1985-1988 by Supoj Sutanthavibul
+	Parts Copyright (c) 1989-2002 by Brian V. Smith
+	Parts Copyright (c) 1991 by Paul King
+
+	Any party obtaining a copy of these files is granted, free of charge, a
+	full and unrestricted irrevocable, world-wide, paid up, royalty-free,
+	nonexclusive right and license to deal in this software and documentation 
+	files (the "Software"), including without limitation the rights to use, 
+	copy, modify, merge, publish distribute, sublicense and/or sell copies of
+	the Software, and to permit persons who receive copies from any such 
+	party to do so, with the only requirement being that the above copyright 
+	and this permission notice remain intact.
+
+The license for 3.2.4 didn't allow selling xfig unless it was simply included in a
+collection of programs (e.g. a CD) that one was selling.
+______________________________________________________________________________
+
+NOTE 1: Because Unisys has stated that they WILL charge royalties for the
+	use of the LZW compression algorithm even in FREE programs, I have
+	removed all traces of the GIF LZW compression/decompression code from
+	xfig.  Xfig now calls giftopnm and ppmtopcx to import GIF files.
+	Screen capture writes a PNG file.
+	Exporting is handled by calling the ppmtogif program from fig2dev.
+	You should use PNG instead of GIF anyway.
+
+NOTE 2: For exporting Fig files to any of the bitmap formats (e.g. PNG, JPEG)
+	you will need to get a version of ghostscript that has jpeg, pcx256,
+	pbmraw, ppmraw and tiff24nc drivers.  Ghostscript is available from
+	ftp.cs.wisc.edu in /ghost/aladdin.
+	If your ghostscript is not called "gs" then change the X resource
+	"Fig.ghostscript" in Fig.ad to the correct name before installing xfig.
+
+	fig2dev uses ghostscript for exporting and xfig uses it for importing
+	PS and EPS files.
+
+	**** Important ****
+	You need the netpbm package which includes the ppmtojpeg program. You
+	can get this from http://download.sourceforge.net/netpbm/
+
+NOTE 3: It is highly recommended that you use Type1 fonts for xfig.
+	For RedHat systems you can use following command (as root):
+
+	        chkfontpath --add /usr/share/fonts/default/Type1
+
+	For other X systems you can install the following ghostscript files
+	into your X11 Type1 fonts directory (usu. /usr/lib/X11/fonts/Type1) for
+	the best scalable on-screen fonts.  You need to update the "fonts.dir" 
+	and "fonts.scale" files to reflect these fonts.  
+
+	Basically, if you copy the following lines into those two files and
+	update the count in the first line to include them, then do an
+	"xset fp rehash" the X Window System will know about them.
+
+	Of course, you will have to also copy the ghostscript font files
+	themselves (i.e. b018012l.pfb etc.) into the X11 fonts/Type1 directory.
+	You can get these fonts from ftp://ftp.cs.wisc.edu/pub/ghost/aladdin/fonts
+
+	n021003l.pfb -adobe-times-medium-r-normal--0-0-0-0-p-0-iso8859-1
+	n021004l.pfb -adobe-times-bold-r-normal--0-0-0-0-p-0-iso8859-1
+	n021023l.pfb -adobe-times-medium-i-normal--0-0-0-0-p-0-iso8859-1
+	n021024l.pfb -adobe-times-bold-i-normal--0-0-0-0-p-0-iso8859-1
+	a010013l.pfb -adobe-avantgarde-book-r-normal--0-0-0-0-p-0-iso8859-1
+	a010015l.pfb -adobe-avantgarde-demi-r-normal--0-0-0-0-p-0-iso8859-1
+	a010033l.pfb -adobe-avantgarde-book-o-normal--0-0-0-0-p-0-iso8859-1
+	a010035l.pfb -adobe-avantgarde-demi-o-normal--0-0-0-0-p-0-iso8859-1
+	b018012l.pfb -adobe-bookman-light-r-normal--0-0-0-0-p-0-iso8859-1
+	b018015l.pfb -adobe-bookman-demi-r-normal--0-0-0-0-p-0-iso8859-1
+	b018032l.pfb -adobe-bookman-light-i-normal--0-0-0-0-p-0-iso8859-1
+	b018035l.pfb -adobe-bookman-demi-i-normal--0-0-0-0-p-0-iso8859-1
+	n019003l.pfb -adobe-helvetica-medium-r-normal--0-0-0-0-p-0-iso8859-1
+	n019004l.pfb -adobe-helvetica-bold-r-normal--0-0-0-0-p-0-iso8859-1
+	n019023l.pfb -adobe-helvetica-medium-o-normal--0-0-0-0-p-0-iso8859-1
+	n019024l.pfb -adobe-helvetica-bold-o-normal--0-0-0-0-p-0-iso8859-1
+	n019043l.pfb -adobe-helvetica-medium-r-narrow--0-0-0-0-p-0-iso8859-1
+	n019044l.pfb -adobe-helvetica-bold-r-narrow--0-0-0-0-p-0-iso8859-1
+	n019063l.pfb -adobe-helvetica-medium-o-narrow--0-0-0-0-p-0-iso8859-1
+	n019064l.pfb -adobe-helvetica-bold-o-narrow--0-0-0-0-p-0-iso8859-1
+	c059013l.pfb -adobe-new century schoolbook-medium-r-normal--0-0-0-0-p-0-iso8859-1
+	c059033l.pfb -adobe-new century schoolbook-medium-i-normal--0-0-0-0-p-0-iso8859-1
+	c059016l.pfb -adobe-new century schoolbook-bold-r-normal--0-0-0-0-p-0-iso8859-1
+	c059036l.pfb -adobe-new century schoolbook-bold-i-normal--0-0-0-0-p-0-iso8859-1
+	p052003l.pfb -adobe-palatino-medium-r-normal--0-0-0-0-p-0-iso8859-1
+	p052004l.pfb -adobe-palatino-bold-r-normal--0-0-0-0-p-0-iso8859-1
+	p052023l.pfb -adobe-palatino-medium-i-normal--0-0-0-0-p-0-iso8859-1
+	p052024l.pfb -adobe-palatino-bold-i-normal--0-0-0-0-p-0-iso8859-1
+	z003034l.pfb -adobe-itc zapf chancery-medium-i-normal--0-0-0-0-p-0-iso8859-1
+
+===================
+INSTALLATION NOTES:
+===================
+
+1. Edit the Imakefile if you need to customize it (see following notes).
+    1a. Specifically, if you want to install xfig in a directory other than
+	the default X11 binary directory, uncomment "BINDIR=<directory>" in the
+	Imakefile, and change <directory> to the full path of the
+	directory where you want xfig to be installed.
+    1b. You may also have to redefine MKDIRHIER because "make" looks for it
+	relative to the BINDIR variable.
+	Set it to: "MKDIRHIER = /bin/sh <path>/mkdirhier" where <path> is the
+	path to mkdirhier.
+    1c. Finally, uncomment and change XAPPLOADDIR to the directory where you
+	want the app-defaults resource files to go.  You will have to use the
+	environment variable XAPPLRESDIR in your shell to point to this
+	directory.
+	On Sun systems running Openwindows you probably need to set the environment
+	variable XUSERFILESEARCHPATH to point to your app-defaults directory, and 
+	append a "%N" to the path, e.g. /users/me/xfig/app-defaults/%N
+    1d. Don't set the DESTDIR variable unless you want to install xfig in a
+	totally different tree than the "correct" tree that your X system
+	expects. The usual purpose of DESTDIR is to test an install process by
+	installing in a benign area.
+
+2. Type "xmkmf" to create the Makefile from the Imakefile.  If you don't have
+	xmkmf you can do "make -f Makefile.noimake Makefile".  In either case
+	you must have imake, which can be found at the Open Group site,
+	ftp.x.org.
+
+3. Type "make"         (**** This MUST be done before "make install" ****).
+	Note: The "configure" script will be automatically run in the JPEG
+	directory if you have commented out the USEINSTALLEDJPEG variable
+	(i.e. you have defined the JPEGLIBDIR and other variables).
+	This will create the Makefile in the JPEG directory from your system
+	configuration.
+	If for whatever reason, the configure script doesn't run, go into the
+	JPEG directory and type "./configure" then "make".  Then go back to
+	the xfig directory and continue with "make".
+
+4. Type "make install.all"
+	This will install the executable (xfig) into the execute directory,
+	the Fig library objects into xfig's library directory XFIGLIBDIR,
+	and the documentation files into xfig's document directory XFIGDOCDIR.
+	To change where the standard "man" pages go, change MANDIR=<path> in the
+	Imakefile.
+	There is a reference in HTML, a tutorial in PDF format, and the man
+	pages in PDF format, although the HTML files are much better than the
+	man pages.  The Help menu in xfig will launch the browser to read the
+	HTML files and the PDF viewer to view the other two.  The programs
+	that are used for these are specified in the app-defaults file under
+	Fig.browser and Fig.pdfviewer respectively.  The default for HTML is
+	"netscape" and "acroread" for the PDF files.
+	If your Netscape can read PDF files you may want to change the
+	Fig.pdfviewer resource to say "netscape" instead of "acroread".
+	You can get both Netscape and Acroread for just about every platform.
+	Netscape is available from Netscape Communications at:
+		http://home.netscape.com
+	and Acroread is available from Adobe at:
+		http://www.adobe.com/prodindex/acrobat/readstep.html
+	
+	If you only want to install the documentation files and/or the libraries
+	of Fig objects, you can do "make install.doc" and/or "make install.libs"
+	respectively.
+
+   ****	If you don't do this step, be sure to install the app-defaults files
+	Fig.ad and Fig-color.ad in the system app-defaults directory (usually
+	/usr/lib/X11/app-defaults) as "Fig" and "Fig-color" respectively, and
+	the CompKeyDB file in the directory specified by XFIGLIBDIR
+	(default: /usr/local/lib/X11/xfig).
+	There are two app-defaults files for colors: one I call the "classic"
+	color scheme (blues for the buttons and primary colors for OK/CANCEL
+	buttons) and a new one provided by Joel D. Young (jdyoung@afit.af.mil)
+	which looks more like tcl, and I think is a little nicer.  It looks
+	best when used with Xaw3d.1.0, which can show 3d relief for labels,
+	not just buttons.  This new color set is the default.
+	If you want the "classic" colors, copy Fig-color.classic.ad to your
+	app-defaults directory as "Fig-color".
+
+	If you can't install xfig in your system directories you may put it
+	anywhere in your search path.  The app-defaults files (Fig.ad and
+	Fig-color.ad) may be put into any directory as Fig and Fig-color
+	respectively, and pointed to by setting the shell environment
+	variable XAPPLRESDIR.  You may also put the CompKeyDB file in that
+	directory and compile xfig with XFIGLIBDIR (in the Imakefile) pointing
+	there.
+
+5. Type "make install.man".
+
+6. For X11R5 and later color X servers, specify "*customization: -color" in
+	your .Xdefaults or .Xresources file.  This will make the system look
+	in "Fig-color" for the resources, which then includes "Fig" for the
+	non-color related resources.
+	NOTE: this only works under X11R5 and later.
+
+------------------------------
+IMPORTANT GENERAL NOTE:
+------------------------------
+Anytime the Imakefile is changed, you must do either "xmkmf" or "make Makefile",
+followed by "make clean" before doing a "make" or "make install" of any kind.
+
+------------------------------
+NOTES on changes to Imakefile:
+------------------------------
+
+o For a 3D look, I recommend using Kaleb Keithley's 3D Athena Widget set, a
+  direct replacement for the Xaw library.  After you compile and install that
+  package, and after step 1 above, uncomment the following definition for XAW3D
+  and change the XAW3DINC variable to point to the directory where your
+  3D Athena widget headers are located.
+  This set is available from ftp.x.org in /contrib/widgets.
+
+o If the Xaw or Xaw3d Athena widget sets are compiled with the ARROW_SCROLLBAR
+  style of scrollbars, there is no StartScroll action and you won't be able to
+  scroll using the wheel on the mouse.  
+  If you want to be able to scroll using the wheel, you must recompile the Xaw
+  library from sources, disabling the ARROW_SCROLLBAR option.
+
+o If you *don't* want JPEG support, comment out the #define USEJPEG line in
+  the Imakefile.
+
+o If you want to be able to import JPEG images then:
+  o If you already have a JPEG library in your system library directory leave
+    the "#define USEINSTALLEDJPEG" line (don't comment it out) in the Imakefile.
+  o If you don't have it installed, get it from one of the following places,
+    comment out the #define USEINSTALLEDJPEG line in the Imakefile (using XCOMM)
+    and point JPEGLIBDIR to the diredctory where the source is.  The default is
+    ../jpeg (relative to the xfig source directory).
+  o You must have version 5b or newer of the JPEG library.
+  o The JPEG library is available from several places.  The official
+    archive site is ftp.uu.net in /graphics/jpeg.
+    Another is ftp.x.org in /contrib/libraries.
+  o ** Make sure you delete or rename any older version of the JPEG
+    library you might have on your system.  Some Linux systems come
+    with an older version which is incompatible with xfig.
+
+  o You need the PNG library (-lpng) and the zlib (-lz) compression library.
+    You can find the PNG sources at http://www.libpng.org/pub/png/libpng.html and
+    the zlib sources at ftp://ftp.cdrom.com/pub/infozip/zlib.
+
+o If you want to use the XPM3 package (X11 color pixmaps) uncomment the
+  #define USEXPM line (using XCOMM) in the Imakefile.
+  With XPM support you can import xpm files as picture objects, and export
+  figures as XPM files.
+  Additionally, if you want to use the color icon for xfig (which is in
+  XPM format) uncomment the #define USEXPM_ICON line in the Imakefile.
+  You need xpm version 3.4c or newer.  This is available from ftp.x.org in
+  /contrib/libraries. XPM usually comes with most Linux installations.
+
+o If your system's printer capability file (printcap) is not in /etc/printcap,
+  change the PRINTCAP variable to reflect this.
+
+o If you have a small screen (e.g. 800x600) you may want to uncomment
+  the line with USESMALLICONS in the Imakefile to use smaller icons for the
+  mode panel.
+  Also, when starting xfig use -pwidth 8 -pheight 5.5 -but_per_row 3
+  This will make it use 3 buttons per row on the left panel and size the canvas
+  to fit in 800x600.
+  You can also use the X resources by putting the following in the app-defaults
+  files or your personal X defaults file:
+	Fig.pwidth: 8
+	Fig.pheight: 5.5
+	Fig.but_per_row: 3"
+
+o If you have Ghostscript, xfig will attempt to use it to interpret any
+  encapsulated Postscript (EPS) files you import.  Ghostscript must be compiled
+  with with the "pcx256" and "pbmraw" drivers.  The pbm driver is used when you
+  run xfig on a monochrome display and the pcx256 driver is used on a color
+  display.
+  See NOTE 2 above about the pcx driver in Ghostscript.
+
+o If you don't have Ghostscript, remove the -DGSBIT flag in the "DEFINES"
+  variable in the Imakefile.
+
+o If you are using the HP compiler, add "-Aa -D_HPUX_SOURCE | -O" to the DEFINES
+  variable in the Imakefile.  Note carefully the "|" which prevents the compiler
+  from overriding the -O option. Problems occur if the +O3 optimization is used.
+
+o If your system doesn't have strstr(), uncomment the line with HAVE_NO_STRSTR
+  in the Imakefile.
+
+o If your system doesn't have strcasecmp() and/or strncasecmp(), uncomment the
+  lines in the Imakefile with HAVE_NO_STRCASECMP and HAVE_NO_STRNCASECMP.
+
+o If your system doesn't have the strerror() function then uncomment the
+  "#define NEED_STRERROR" in the Imakefile.
+
+o If you have an input tablet and your X server supports the XInputExtension
+  uncomment the lines that define TABLIB and USETAB in the Imakefile.
+  Start xfig with -tablet or define the resource Fig.Tablet to use it.
+
+o The maximum width of the top ruler is set to 1600 pixels and the height of the
+  side ruler to 1280 pixels.  If your server can handle pixmaps larger than this
+  and you need longer/taller rulers, you may set the maximum allowed in your
+  Imakefile with -DMAX_TOPRULER_WD=2000 (or whatever value you wish) and
+  -DMAX_SIDERULER_HT=1600 (or whatever value you wish).
+  This limitation exists for VaxStation graphics hardware.
+
+o The SMOOTHMOTION option toggles between two methods for tracking the
+  cursor.  The first way (SMOOTHMOTION) just uses the (x,y) information given
+  in the X pointer motion event.  If your display server doesn't implement
+  motion compression this is very slow for large movements of the mouse
+  pointer because X sends back lots of small movement events, each of which
+  causes the rubberband box to be erased and redrawn.  The alternative
+  way (not SMOOTHMOTION) queries the position of the X cursor whenever
+  a motion event is received and if you make a large movement and then
+  stop actually turns out to involve less work even though the XQueryPointer
+  call is quite slow.
+  The SMOOTHMOTION flag MIGHT be necessary for older versions of OpenWindows on
+  certain machines if the performance is slow when moving or drawing objects.
+
+o If you have a Sun Sparcstation and would like the Compose LED (light) turned
+  on when you are entering multi-key characters (like a-umlaut, c-cedilla, etc),
+  uncomment the line: COMP_LED = -DCOMP_LED=3
+  (Note: older versions of X11, e.g. R5 may use 1 instead of 3 for the LED)
+
+o Look for any other comments in the Imakefile which describe options.
+
+--------------
+General NOTES:
+--------------
+
+The pattern shading (e.g. bricks, shingles, etc.) only work for PostScript,
+tk (of the tcl/tk fame), and the bitmap output formats (e.g. PNG, GIF, JPEG, etc.).
+
+Unless you have an image (picture object) in your figure, you may not gain
+very much by exporting in JPEG over PNG because of the nature of compression
+used in both methods.  PNG is usually better for line drawings or drawings
+with large blocks of continuous color (e.g. filled polygons).  JPEG is usually
+better for compressing (photograpic) images.
+
+If you have the default paper size for Ghostscript as A4 (metric) change the
+following (in gs_init.ps):
+
+% Optionally choose a default paper size other than U.S. letter.
+   (a4) /PAPERSIZE where { pop pop } { /PAPERSIZE exch def } ifelse
+
+to
+   systemdict /DEVICEWIDTH known systemdict /DEVICEHEIGHT known or not
+    { (a4) /PAPERSIZE where { pop pop } { /PAPERSIZE exch def } ifelse
+    } if
+
+----------------------
+Printing your figures:
+----------------------
+
+The program to translate your figure into one of many printer languages
+(Postscript, LaTex, etc) is called fig2dev and is part of the TransFig
+package put together by Micah Beck and maintained by me, Brian Smith.
+It is available from ftp.x.org in /contrib/applications/drawing_tools/transfig.
+See the man pages for more information.
+
+xfig relies on the user's command search path to run fig2dev, but you
+may also set the FIG2DEV_DIR environment variable if you want to force
+it to look elsewhere.
+
+If you have a SYSV system but use BSD-style printing (lpr instead of lp) you
+must define -DBSDLPR in the Imakefile/Makefile.
+
+You may also need to uncomment the following string in the Fig.ad
+app-defaults file:
+
+!Fig*job_params*string:		-T PS
+
+--------------
+Solaris users:
+--------------
+
+You should have:
+
+#define SystemV4 YES
+
+in your imake machine config file (usually in /usr/lib/X11/config/<machine>.cf
+or something like that).
+
+Some people have had trouble with the Sun cc 3.0.1 compiler and optimization.
+You may need to shut off optimization.
+A common symptom is that xfig just core dumps when starting.
+
+------------------------------------------------------
+Possible problems encountered installing/running xfig:
+------------------------------------------------------
+Please see the FAQ in Doc/html/faq.html for an up-to-date FAQ.  This is
+available from the Help/Xfig Reference menu entry while running xfig,
+or by viewing Doc/html/faq with your favorite web browser.
+________________________________________________________________________________
+PROBLEM:
+	icons in side and bottom panels appear then disappear
+
+POSSIBLE CAUSE AND SOLUTION:
+	On Linux (2.0.29 at least), the libNextaw version of the Athena Widget
+	set (libXaw) seem to cause this problem.
+	Relink with vanilla libXaw or libXaw3d.
+________________________________________________________________________________
+PROBLEM:
+	A warning about some action not found occurs, e.g.:
+	Warning: Actions not found: ModeOpenCompound
+
+POSSIBLE CAUSE AND SOLUTION:
+	You didn't install the app-defaults files.
+________________________________________________________________________________
+PROBLEM:
+	X error occurs with X_SetClipRectangles as the Request code
+
+	or:
+
+	Thick line shows through arrowhead in certain orientations.
+
+POSSIBLE CAUSE AND SOLUTION:
+	In X11R5 there was a bug in the clipping algorithm (Xlib).  Switch to
+	X11R6 or apply the following patch to mit/lib/X/XPolyReg.c in the
+	X11R5 library:
+
+*** XPolyReg.c.orig	Tue Dec 15 12:01:22 1992
+--- XPolyReg.c	Wed Nov 15 09:41:13 1995
+***************
+*** 402,408 ****
+  	    if (numRects && pts->x == rects->x1 && pts->y == rects->y2 &&
+  		pts[1].x == rects->x2 &&
+  		(numRects == 1 || rects[-1].y1 != rects->y1) &&
+! 		(!i || pts[2].y > pts[1].y)) {
+  		rects->y2 = pts[1].y + 1;
+  		continue;
+  	    }
+--- 402,409 ----
+  	    if (numRects && pts->x == rects->x1 && pts->y == rects->y2 &&
+  		pts[1].x == rects->x2 &&
+  		(numRects == 1 || rects[-1].y1 != rects->y1) &&
+! 		/* Fixed version from X11 R6 */
+! 		(i && pts[2].y > pts[1].y)) {
+  		rects->y2 = pts[1].y + 1;
+  		continue;
+  	    }
+________________________________________________________________________________
+PROBLEM:
+	When using LaTeX fonts in Xfig I always end up with postscript
+	fonts instead rather than, say, Computer Modern.
+
+POSSIBLE CAUSE AND SOLUTION:
+	To put fonts under the control of LaTeX when generating PS, you must
+	tag the text object as "special" and then use the pstex output mode.
+	This mode forces special text objects to be passed through to LaTeX,
+	allowing the use of Math mode and CM fonts among other things.
+________________________________________________________________________________
+PROBLEM:
+	On a DEC Alpha the compiler may complain about something like: ".mask
+	must have pcreg from .frame set if any bits are set in .mask or .fmask"
+	in the file u_bound.c.
+
+POSSIBLE CAUSE AND SOLUTION:
+	Set the optimization level to -O1 at least for that file.
+________________________________________________________________________________
+PROBLEM:
+	On Sun machines the linker may give erroneous error messages about
+	the following symbols being undefined:
+
+	ld: Undefined symbol
+	   _get_applicationShellWidgetClass
+	   _get_wmShellWidgetClass
+
+	This may be ignored as it is a problem with the Sun shared libraries
+	and the way X11 builds the shared Xmu library.  It doesn't affect the
+	operation of xfig.
+
+	Or you may compile with "-Bstatic -lXmu -Bdynamic".
+	To really solve the problem if you are using OpenWindows 3.0
+	(X11R4-based Xt), please contact your local Sun office and request the
+	following patches:
+
+        Patch i.d.      Description
+        100512-02       4.1.x OpenWindows 3.0 libXt Jumbo patch
+        100573-03       4.1.x OpenWindows 3.0 undefined symbols when using
+                                shared libXmu
+
+	A source patch for use with the MIT X11R4 libraries was developed by
+	Conrad Kimball (cek@sdc.boeing.com); it retrofits into R4 some fixes
+	made in R5 to get around this problem. The patch is on export in [1/93]
+	contrib/X11R4_sunos4.1.2_patch_version3.Z".
+
+	The other option is to use X11R5 or X11R6.
+________________________________________________________________________________
+PROBLEM:
+	Openwindows sometimes loses track of xfig's icon.
+
+POSSIBLE CAUSE AND SOLUTION:
+	Cause unknown, here is a temporary kludge. Place the line:
+		Fig*iconPixmap:               ..../your_lib_area/fig.icon.X
+	in your .Xdefaults file and copy fig.icon.X into your lib area.
+________________________________________________________________________________
+PROBLEM:
+	When compiling on an HP 750 running HP-UX 8.05, the compiler dies with
+	a bus error in the file u_undo.c.
+
+POSSIBLE CAUSE AND SOLUTION:
+	There is a bug in the HP compiler.  Workaround the problem by adding
+	an extra statement between two statements in u_undo.c:
+
+	Original:
+
+	undo_glue()
+	{
+	    list_delete_compound(&objects.compounds, saved_objects.compounds);
+	    tail(&objects, &object_tails);
+
+	New:
+
+	undo_glue()
+	{
+	    list_delete_compound(&objects.compounds, saved_objects.compounds);
+>>>	    /* HP-UX 8.05 compiler bug fix -- don't ask */
+>>>	    last_action = last_action;
+	    tail(&objects, &object_tails);
+________________________________________________________________________________
+PROBLEM:
+	On HP machines, the capitalization of some letters in the text window
+	in the edit popup for text objects are wrong.
+
+POSSIBLE CAUSE AND SOLUTION:
+	Make sure that the CompKeyDB file has the lowercase letter definitions
+	BEFORE the uppercase definitions.  This should be the case for the
+	CompKeyDB file shipped with xfig 2.1.5 and later.
+________________________________________________________________________________
+PROBLEM:
+	On some HP computers using native cc compiler there is a problem with
+	level 3 optimization.
+
+POSSIBLE CAUSE AND SOLUTION:
+	Use +O2 instead of +O3 or get patch from HP for the compiler from
+	http://support.mayfield.hp.com/
+	Choose: Patch Browsing and Downloading
+________________________________________________________________________________
+PROBLEM:
+	On Linux, you may get errors such as:
+	   > f_wrjpg.o(.text+0x5b2): undefined reference to `jpeg_write_scanlines'
+	   > f_wrjpg.o(.text+0x5dc): undefined reference to `jpeg_finish_compress'
+	   > f_wrjpg.o(.text+0x5e2): undefined reference to `jpeg_destroy_compress'
+
+POSSIBLE CAUSE AND SOLUTION:
+	On most Linux machines, there is an old version of the JPEG library
+	already installed, and is incompatible with xfig.
+	Delete its library files (usually /usr/local/lib/libjpeg.so and
+	/usr/local/lib/libjpeg.a) and the header file (usually
+	/usr/local/include/jpegdata.h)
+________________________________________________________________________________
+PROBLEM:
+	Arc-boxes don't appear correct when viewing exported PostScript with
+	ghostview or ghostscript.
+
+POSSIBLE CAUSE AND SOLUTION:
+	Ghostscript version 4.01 has a bug with the arcto operators.
+	Get version 4.03 or newer.
+
+
+----------------
+Artwork credits:
+----------------
+
+This section gives credit to those people who have contributed to the Libraries/Examples
+directory.
+Any figures not listed here were probably done by Brian Smith.
+
+Fig file	Description			Artist
+--------	-----------			------
+antennas.fig	various ultra-wideband antennas	(can't remember who submitted this)
+
+sowpig.fig	RAAF F-111C fighter		Carlo Kopp (he has an "Unofficial F-111"
+		w/2xAGM-142 Have Nap SOWs	web page at:
+rfxc.fig	RFX Strike/Recon Fighter	http://www.cs.monash.edu.au/~carlo/archive/MILITARY/F-111/
+greenpig.fig	F/RF-111C/G Tactical Fighter
+lidar.fig	Sidelooking battlefield surveillance LIDAR
+
+linuxlogo.fig	This was an entry in the	Philipp Reisner
+		Linux 2.0 Logo contest
+
+illusion.fig	"impossible" 3-D object		Vivek Khera (khera@cs.duke.edu)
+recycle.fig	recycling logo
+
+flowchart.fig	flowchart building blocks	Tim P. Starrin (noid@cyborg.larc.nasa.gov)
+
+logo.fig	first fig file using imported	Bryan Boyter (original author of eps
+		eps object			import code for xfig)
+transit.fig	transit map of Saint John,	Robert Ford (rford@mailserv.mta.ca)
+		New Brunswick (Canada)
+		** Don't use it for locating transit routes. It is only good
+		through July 1996 and only shows non-rush-hour routes **
+aircraft.fig	light aircraft			Peter Hiscocks (phiscock@ee.ryerson.ca)
+ps-foil.fig	power supply circuit board foil layout
+ps-schematic.fig  power supply circuit board schematic
+clp_computer.fig various computers, monitors etc.  W. Chimiak (chim@tachyon.medeng.wfu.edu)
+clp_network.fig	computer network components

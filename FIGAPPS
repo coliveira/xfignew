@@ -1,0 +1,190 @@
+The following are applications which can produce Fig files as their output:
+
+************************************************************************
+There is a port of xfig for the MacIntosh running Darwin (the MacIntosh
+port of XFree86). See http://fink.sourceforge.net/pdb/package.php/xfig
+************************************************************************
+There is a version of xfig which will run under Windows, but still needs
+an X server (e.g. Hummingbird Exceed, or Cygwin http://www.cygwin.com/xfree/)
+to run.  The URL is:
+http://aquarius.franken.de/software/develop/gnuwin32/cygwin/porters/Hirmke_Michael/GNUWin32-links.html
+Another is: http://www.cs.usask.ca/grads/wew036/latex/xfig.html
+************************************************************************
+grass2fig - The GRASS GIS (Geographic Resources Analysis Support System)
+	is an open source Geographical Information System (GIS) with raster,
+	topological vector, image processing, and graphics production
+	functionality that operates on various platforms through a graphical
+	user interface and shell in X-Windows. It is released under GNU General
+	Public License (GPL). 
+	The grass2fig program will convert a GRASS binary vector map to a
+	Fig file.
+************************************************************************
+JavaFIG - Java applet which is based on xfig. See:
+	http://tech-www.informatik.uni-hamburg.de/applets/javafig/applet.html
+************************************************************************
+figbuild - figbuild reads xfig files (Version 3.x, tested with 3.1, 3.2) plus
+	its own config file for heights, and generates a Radiance input
+	file. Written by Peter Apian-Bennewitz at Fraunhofer ISE, Germany
+	see:
+	http://www.ise.fhg.de/radiance/pabs-toolbox/figbuild/figbuild.html
+
+************************************************************************
+xfigbar and xfigpie - Two C programs to produce bar and pie charts as Fig
+	files.  Written by John Conover <john@johncon.johncon.com>,
+	these programs are available at:
+	http://www.johncon.com/john/archive/xfigutilities.shar.gz
+
+************************************************************************
+mifXfig - MIF to XFig and XFig to MIF Converter 
+	see http://www.ida.liu.se/~vaden/teaching/m2f/ for details, but it
+	basically converts to and from MIF and Fig files
+	From Vadim Engelson (vaden@ida.liu.se)
+
+************************************************************************
+pstoedit - converts Postscript(TM) files to other vector graphic formats
+	that can be edited. Besides Fig output, tgif, Framemaker(TM) (MIF-
+	format) and flattened PostScript are supported along with several
+	others.
+	You need a C++ compiler to install and GhostScript to run pstoedit.
+	pstoedit should run on all Un*x like systems and has also been ported
+	to OS/2 and DOS.
+
+	http://www.pstoedit.net/pstoedit
+
+************************************************************************
+hp2xx - converts HPGL to EPS, LaTex, Fig or simplified HPGL converter
+	Now maintained by Martin Kroeker (mk@daveg.com)
+	available from ftp.gnu.org and the usual mirror sites
+
+************************************************************************
+chemtool - Chemical structure editor for X11 available from
+	http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool.html
+	that writes Fig output (and relies on transfig for anything more fancy
+	than xbm)
+
+************************************************************************
+xgraph - plotting package for X - version on iworks.ecn.uiowa.edu in
+	comp.hp has version that can output Fig files
+
+************************************************************************
+gnuplot - Plotting package; can output in Fig format.
+	For the location of gnuplot, here is the (paraphrased) excerpt from
+	the FAQ.  Note, that although there are versions of gnuplot for
+	several different platforms, xfig only runs under X11.
+
+	The official distribution site for the gnuplot source is dartmouth.edu,
+	in /pub/gnuplot.  Official mirrors of that distribution are (for
+	Australia) monu1.cc.monash.edu.au and (for Europe) irisa.irisa.fr.
+	You can also get it from your friendly neighbourhood comp.sources.misc
+	archive.
+
+	MS-DOS and MS-Windows binaries are available from oak.oakland.edu
+	(North America) as pub/msdos/plot/gpt34*.zip, garbo.uwasa.fi (Europe)
+	as /pc/plot/gpt34*.zip and archie.au (Australia) as
+	micros/pc/oak/plot/gpt34*.zip.  The files are: gpt34doc.zip,
+	gpt34exe.zip, gpt34src.zip and gpt34win.zip.
+
+	OS/2 2.x binaries are at ftp-os2.nmsu.edu in /os2/2.x/unix/gnu/gplt34.zip.
+
+	Amiga sources and binaries are available from wuarchive.wustl.edu
+	as /pub/amiga/aminet/util/gnu/gnuplot-3.4*; there are numerous mirrors
+	of this distribution.
+
+	The NeXTSTEP front end can be found at sonata.cc.purdue.edu and
+	cs.orst.edu.
+
+	A version for OS-9/68K can be found at cabrales.cs.wisc.edu in
+	/pub/OSK/GRAPHICS; it includes both an X and non - X versions.
+
+	A version of gnuplot for the Macintosh is included in the gpcontrb
+	file, or can be found at wuarchive.wustl.edu in
+	edu/math/mac/graphingAids, as MacGnuPlot3.2.sea.hqx and
+	MacGnuPlotPackage3.2.sea.hqx.
+
+************************************************************************
+pic2fig - converts PIC (used with troff/ditroff/etc) to Fig.
+	May be found at ftp.cs.orst.edu in /localsrc/graphics and
+	at ftp.x.org in /contrib/utilities.
+
+************************************************************************
+GNU plotutils - includes an application for XY plotting (graph),
+	a plot filter (plot), a Tektronix translator (tek2plot),
+	a program for displaying font character maps (plotfont),
+	and a library for drawing 2-D vector graphics (libplot), 
+	all of which produce output in xfig format.
+	
+	http://www.gnu.org/software/plotutils/plotutils.html
+	by Robert S. Maier <rsm@math.arizona.edu>
+
+************************************************************************
+cdraw2fig - converts cdraw to Fig
+
+	Here is the cdraw README file:
+
+	cdraw2fig translates pictures from "Cheap Draw" format to Fig format.
+	The TransFig package can then be used for translation to the desired
+	output format.  Currently supported formats include PIC, (E)EPIC, LaTeX,
+	PostScript, and several others.
+
+	cdraw2fig is implemented in the awk programming language.  Most Cheap
+	Draw operations are handled in some way, although some of the transla-
+	tions are somewhat arbitrary.  Note that some output formats are con-
+	siderably less expressive than Cheap Draw (and Fig).  PIC, for example,
+	supports neither shading or rotated text.  In addition, precise text
+	spacing is problematic across the different output formats.
+
+	The following files are included in this distribution:
+
+	       README          - this file
+	       cdraw2fig.uu    - ksh script with self-contained awk program
+				 (uuencoded)
+	       example         - sample "Cheap Draw" file (from the original
+				 Cheap Draw distribution)
+
+	To translate a Cheap Draw file to PIC (for example):
+
+	       $ cdraw2fig example > example.fig
+	       $ fig2dev -Lpic example.fig > example.pic
+
+	Cheap Draw 2.0 was written by Bob Pratt and is available from the UNIXPC
+	archives at osu-cis.  
+
+************************************************************************
+Msphinx - a friendly package to handle satellite images.
+
+      Main features:
+      	Msphinx includes two types of analysis and processing functions:
+	   - Functions to process the basic data geometry and
+			projection planes.
+	   - Functions to manipulate and modify the graphic display and print.
+
+       Communication capabilities:
+	   - Data writes from external user programs
+		(C or Fortran) into the memory planes.
+	   - User-to-user data exchange (text or images).
+	   - User image data base visualisation.
+	   - Direct links to other packages:
+		- Mgraph (2d and contouring plotting)
+		- HDFLook (HDF read write files)
+>>>		- Xfig (Facility for Interactive Generation of figures)
+		- mpeg_encode (mpeg format nimations)
+
+	Find it at:
+	http://loasys.univ-lille1.fr/Msphinx/Msphinx_gb.html
+
+************************************************************************
+TeXmacs - a WYSIWYG mathematical text editor which supports the inclusion of
+pictures created by xfig. There is also a small script which converts an xfig
+picture with LaTeX formulas in it to encapsulated postscript (by calling LaTeX).
+For more information about TeXmacs, see:
+
+	http://www.math.u-psud.fr/~anh/TeXmacs/TeXmacs.html
+	By Joris van der Hoeven
+
+************************************************************************
+
+As well, there are pointers to other FIG and Xfig related items at:
+http://duke.usask.ca/~macphed/soft/fig/
+
+************************************************************************
+
