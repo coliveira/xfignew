@@ -1,0 +1,227 @@
+This is a Traditional Chinese(Big5) version of LATEX.AND.XFIG converted
+from Simplified Chinese(GB2312) translated by Mendel L Chan(could be
+touched by beos@turbolinux.com.cn or linuxrat@gnuchina.org) on Nov 13,
+2001. The encoding-converting utility is the (zh-)autoconvert written 
+by YU GuangHui <ygh@debian.org>, a Chinese freesoftware developer.
+
+============= >8 BEGIN OF LATEX.AND.XFIG.zh_TW 8< ===================
+
+¥»¤å§@ªÌ¬O Eri Masson (ericm@kirk.ee.mcgill.ca)
+
+¤U¤åÁ¿¸Ñªº¬O¦V LaTeX ±Æª©¨t²Îªº¾É¤Jxfig¹Ï¤ùªº¤èªk¡A¨ä¤¤ÁÙ¦³¤@¨Ç¤p³ZÂ¬¡A
+¯àÅý±z§ó»´©ö¹F¨ì¥Ø¼Ð¡C§Ú¼gªºªF¦è¥i¯à¦³ÂI³¯ÂÂ¡A¦ý¬OÁÙ¬O¹ê¥Îªº¡C
+
+¯¬±z°·±d¦p·N!
+
+Eric ·q¤W
+
+¦p¦ó¦b±zªº LaTeX ¤åÀÉ¤¤¾É¤J xfig ¹Ï¤ù¡J
+--------------------------------------------------------------
+
+·Ç³Æ¶}©l
+--------
+
+±z¥i¥H°õ¦æ¦p¤U©R¥O±Ò°Ê xfig µ{§Ç¡J
+
+xfig -specialtext -latexfonts -startlatexFont default
+
+¦pªG±z·QÅý±z©Ò¦³ªº¹Ï¤ù¦b½s¿è®É´N±a¦³¯S®í¤å¥»©M LaTeX ¦rÅé¡A±z¥i¥H¦b±zªº
+.Xresources ©ÎªÌ¨ä¥L±z©Ò¨Ï¥ÎªºÃþ¦ü¸ê·½¤å¥ó­×§ï¦p¤U³]¸m¡J
+
+Fig.latexfonts: true
+Fig.specialtext: true
+
+xfig ¥i¥H¿é¥X LaTeX ¥i¥HÅª¨úªº´XºØ®æ¦¡¡C¦ý¬O§Ú¦b¥»¤å¥u°Q½×¤TºØ¤èªk¡J
+
+(A) ¹Ï¤ùª½±µ¦s¦¨ LaTeX ®æ¦¡¡C
+(B) ¹Ï¤ù¦s¦¨ EPS ¨Ã¦b LaTeX ¤åÀÉ¤¤¾É¤J PS¡C
+(C) ¹Ï¤ù¦s¦¨³¡¤Àªº PS¡A³¡¤Àªº LaTeX ®æ¦¡¡C¤GªÌ³q®É¥Î¤_±zªº¤åÀÉ¡C
+
+³o¤TºØ¤èªk³£¦³¦U¦ÛªºÀu¶Õ¡A¦P®É³£¤@¼ËÂ²³æ©ö¦æ¡C¤èªk(A)ªºÀu¶Õ¦b¤_±zªº©Ò¦³
+¦¨«~³£¬O LaTeX ®æ¦¡¡A³o¼Ë¤@¨Ó¦b .dvi ¤å¥ó¤¤´N¯à°÷¥]§t©Ò¦³¥²­nªº«H®§¡C¤è
+ªk(B)ªºÀu¶Õ¦b¤_±z¦³¨¬°÷ªº¦Û¥ÑÀH·N³B²z PS ¦rÅé¡C¤èªk(C)ªºÀu¶Õ«h¦b¤_±z¥i¥H
+¦Û¥Ñµo´§PSªºÃ¸¹Ï¯S©Ê¡AÁÙ¦³ LaTeX ªº¤å¦r±Æª©¡C
+
+---
+
+¦b±zªº LaTeX ¾É¨¥³¡¤À(¤]´N¬O¤åÀÉ¤¤ \begin{document} »y¥y«e­±ªº³¡¤À)¡A
+½Ð¥[¤J¥H¤U¤º®e¡J
+                \usepackage{graphicx}
+
+³o¼Ë¡A±zªº¾É¨¥³¡¤À¬Ý°_¨Ó´N®t¤£¦h¬O³oºØ¼Ë¤lªº¤F¡J
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LaTeX Preamble %%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+\documentstyle[12pt,bezier,amstex]{article}  % ¥]§t¶i¨©ÁÉº¸¦±½uÃ¸¨î¥]
+\renewcommand\baselinestretch{1.0}           % ³æªÅ®æ
+\pagestyle{empty}                            % ¤£»Ý­¶¬Ü©M­¶¸}­¶½X
+\oddsidemargin -10 true pt      % ©_¼Æ­¶½X­¶­±ªº¥ªÃä¼e«×
+\evensidemargin 10 true pt      % °¸¼Æ­¶½X­¶­±ªº¥ªÃä¼e«×
+\marginparwidth 0.75 true in    % ®Çª`¼e«×
+\oddsidemargin  0 true in       % ½Ðª`·N¡J\oddsidemargin=\evensidemargin
+\evensidemargin 0 true in
+\topmargin -0.75 true in        % «ü©w­¶­±³»ºÝ¨ì¤å¥»¶¡¶Z
+\textheight 9.5 true in         % ¤å¥»¦æ°ª«×(¥]¬A¸}ª`©M¹Ï¥Ü)
+\textwidth 6.375 true in        % ¤å¥»¦æ¼e«×
+\parindent=0pt                  % µL»Ý¬q¸¨ÁY¶i
+\parskip=0.15 true in
+
+\usepackage{graphicx}           % ¤¹³\©ñ¸mPSÃ¸¹Ï
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Document Beginning %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+\begin{document}
+\end{document}
+
+
+¤èªk(A)¡J- ¹Ï¤ùª½±µ¦s¦¨LaTeX®æ¦¡
+-----------------------------------------
+
+±qÃ¸¹Ï§Þ³Nªº¨¤«×¨Ó¬Ý¡A³o¬O±z¯à¥Î¤Wªº³Ì®z´¼ªº¤è¦¡¤F¡CLaTeX ¤¤ªº½u±ø¥u¯à¥H
+¦h­Ó 30 ©M 45 «×¨¤¶i¦æÃ¸¨î¡C¦Ó±a¦³½bÀYªº½u±ø¥u¯à¥H¦h­Ó 45 «×¨¤¶i¦æÃ¸¨î¡C
+ÁÙ¦³´N¬O¨ä¥L´X­Ó¯S©Ê¡A¤ñ¦p¾ò¶ê¡B¼Ë±øµ¥µ¥¡A³£¤£¤ä«ù¡C¹ê»Ú¤W¡Axfig ¨Ã¨S¦³
+¹³§Q¥Î¨©ÁÉº¸¦±½u¥]¨º¼Ë¦n¦n§Q¥Î¤w¸g¦s¦bªº LaTeX §»¥]¡C¦b¤èªk(A)©Ò¥Î¹Ï¤ù®æ
+¦¡¤¤¥Î xfig ¶i¦æ½u±øÃ¸¨î¡A±N­­¨î±z¥u¯à¨Ï¥Î¯S©wªº¨¤«×¡C­Y«D¦p¦¹¡A¦b±z«O¦s
+¹Ï¤ù¦¨ latex ®æ¦¡®É¡Axfig ·|³]ªk§â±z©ÒÃ¸¨îªº½u±ø®Ú¾Ú latex ¥i¥Îªº¦³®Ä¨¤
+«×¶i¦æªñ¦üÀÀ¦X¡C³q±`³o¼Ë©Ò±oªº®ÄªGÁ`¬O¤£·|¥O¤Hº¡·Nªº¡C
+
+¦b³oºØ¼Ò¦¡¤§¤U¡A±z¥i¥H¦b±zªº¹Ï¤ù¤¤¿é¤J¥ô¦óªº LaTeX ¦r¦ê¡C¤@¥¹¾É¤J¨ì LaTeX
+¤¤¡A¦r¦ê·|³Q¥¿½T¦a¸ÑÄÀªº¡C¤ñ¦p»¡»y¥y¡J
+ 
+                $\int_0^9 f(x) dx$
+
+´N¯à°÷¸ÑÄÀ¦¨¨ç¼Æ f(x) ªº±q 0 ¨ì 9 ªº¨D©Mªí¹F¦¡¡C
+
+¬°¤F³Ð«Ø LaTeX ¤å¥ó¡A±z¥u»Ý­n±q xfig ¥Dµæ³æ¤¤¿ï«h¿é¥Xµæ³æ¡AµM«á¿ï©wLaTeX 
+¹Ï¤ù§@¬°¿é¥X®æ¦¡¡C¦p¦¹¤@¨Ó¡A´N¯à°÷³Ð«Ø¤@­ÓÂX®i¦W¬° .latex ªº¤å¥ó¡C¸Ó¤å¥ó
+¥i¥H¦b±zªº LaTeX ¤åÀÉ¤¤ª½±µ½Õ¥Î¡C¤ñ¦p¥H¤Uªº»y¥y¥N½X´N¯à±N yourfile.latex
+ª½±µ¾É¤J¨ì LaTeX ¤¤¡J
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Figure 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+\begin{figure}[htbp]
+\begin{center}
+
+\input{yourfile.latex} 
+
+\caption{±zªº¹Ï¥Ü¼ÐÃD}
+\label{figure:yourreferencename}
+\end{center}
+\end{figure}
+
+
+¤èªk(B) - ¹Ï¤ù«O¦s¬° EPS ®æ¦¡
+---------------------------------------------
+
+¦b¥»ªk¤¤¡A°£¤F¤£¯à¦b¦¹®æ¦¡¨Ï¥Î LaTeX ©R¥O¦ê¥~¡A¹Ï¤ùªºÃ¸¨î¤£¦s¦b¥ô¦ó¨ä¥L
+ªº­­¨î¡C¦Ó³\¦hªº PS ¦rÅé«h¥i¥þ³¡¦b³oºØ®æ¦¡¤U§Q¥Î°_¨Ó¡C¤@¥¹±z§¹¦¨Ã¸¨î±zªº
+¹Ï¤ù¡A¥u»Ý­n±q xfig ¥Dµæ³æ¤¤¿ï¾Ü¿é¥Xµæ³æ¡AµM«á¿ï©w¿é¥X EPS ®æ¦¡¡C¦p¦¹±N
+¿é¥XÂX®i¦W¬° .eps ªº¤å¥ó¡A¦Ó¸Ó¤å¥ó¥i¥H«ö·Ó¥H¤U¤è¦¡¥]§t¶i LaTeX ¤åÀÉ¤¤¡J
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Figure 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[htbp]
+\begin{center}
+\ \includegraphics[width=4in]{yourfile.eps}
+\end{center}
+\caption{±zªº¼ÐÃD}
+\label{figure:yourreference}
+\end{figure}
+ 
+¤èªk(C) - PS/LaTeX¦P¤å¦@¦s
+--------------------------------
+
+¦b³oºØ®æ¦¡¤U¡A±z¥i¥H¥ô·NÃ¸¨î½u±ø©ÎªÌ¦±½u¡C¦b«O¦s³oºØ®æ¦¡®É¡ALaTeX ¦r¦ê·|
+­­¨î±z¤£¯à¦P®É¨Ï¥Î¤w¦³ªº PS ¦rÅé¡C±z¤´µM¥i¥H¿é¤J¦r¦ê¡A´N¶H
+ 
+                $\int_0^9 f(x) dx$
+
+³oºØ¦r¦ê¥i¥H³Q LaTeX ³B²z¡C¦ý¬O¨Ï¥Î³oºØ®æ¦¡ªº¨Æ«á¡A±z±o«O¦s¤å¥ó¨â¦¸¡J¤@¦¸
+¬O¦X¨Ã ps/latex (PS³¡¤À) ®æ¦¡¡A¥t¥~¤@¦¸«h¬O¦X¨Ã ps/latex (LaTeX³¡¤À)®æ¦¡¡C
+²Ä¤@¦¸¥Í¦¨ªº¬O¤@­Ó .pstex ¤å¥ó¡A²Ä¤G¦¸¥Í¦¨ªº«h¬O¤@­Ó .pstex_t ¤å¥ó¡C¨º­Ó
+.pstex_t ·|¦Û°Ê½Õ¥Î .pstex ¤å¥ó¡A³o¼Ë±z´NµL»Ý¦b±zªº TeX ¤åÀÉ¤¤Åã¦¡¦a¥]§t
+³o­Ó .pstex ¤å¥ó¤F¡C­n¦b¤åÀÉ¤¤¥]§t¶i¥h±zªº¹Ï¤ù¡A½Ð¨Ï¥ÎÃþ¦ü¥H¤Uªº»y¥y¥N½X¡J
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Figure 3 of Lecture %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[htbp]
+\begin{center}
+ 
+\input{yourfigure.pstex_t}
+ 
+\caption{±zªº¹Ï¥Ü}
+\label{figure:example}
+\end{center}
+\end{figure}
+
+N.B. ±z¥i¯à·Q­n½s¿è¥Î xfig ¥Í¦¨ªº .pstex_t ¤å¥ó¡C¦pªG«ü©w¬°¨ä¥L¤å¥ó¤ñ¦p
+     .pstex¡Axfig ±N¦Û°Êµ¹¥X«ü¦V .pstex ¤å¥óªº¸ô®|¡C³o¦³®É¤£°÷¤è«K¡A¤×¨ä
+     ¬O¦b±z¦]¬° LaTeX ¤åÀÉ³B²z¥X¿ù¡A¦Ó¤£±o¤£²¾°Ê¤å¥ó¨ì¥t¥~¤@­Ó¥Ø¿ýªº®É­Ô¡C
+     §Ú­Ó¤H¶É¦V¤_¥h±¼¥þ³¡¸ô®|¦Ó¥u«O¯d¤å¥ó¦W¡C
+
+
+¨ä¥L­nÂI
+--------
+
+xfig
+----
+
+±z¥i¥H¦b LaTeX ¤å¥ó¤¤¾É¤J EPS ¤å¥ó¡C¦pªG±z·Ç³Æ¦b¨ä¥Lµ{§Çªº¿é¥Xµ²ªG¤W¶î¾~
+ªº®É­Ô¡A³o´N«Ü¦³¥Î¤F¡C¤ñ¦p»¡¡A±z¥i¥H¥]§t¶i¨Ó¤@­Ó¨Ó¦Û MATLAB ªº¹Ï¤ù¨Ã®Ú¾Ú
+­Ó¤H¿³½ì¼ÐÃÑ¥H¦r²Å¦ê¡A½u±ø¡A°é®Øµ¥µ¥¡C¦Û xfig 2.1.7 ¶}©l¡A´N¦³¤F¤@¶µ¥Ø¥\
+¯à¡A¤¹³\±z¦b±zªºÃ¸¹Ï¤¤¬d¬Ý PS¡C³o­Ó¥\¯à«Ü¦n¡C
+
+¦pªG±z¥u¦³ .ps ¤å¥ó¡A¨º»ò½Ð¨Ï¥Î¨Ó¦Û ghostscript ³n¥ó¥]ªº ps2epsi ¨Ó«Ê¸Ë±z
+ªº PS ¤å¥ó¡C
+
+-- 
+=================================================================
+  Eric Masson - ericm@finnegan.ee.mcgill.ca - FAX: 514 398 4470
+=================================================================
+
+
+=================================================================
+ÁÙ¦³¤@¨Ç­nÂI¡A¨Ó¦Û Stephen Eglen <stephene@cogs.susx.ac.uk>
+
+* §ïÅÜ pstext_t ¤¤ªº¹Ï¤ù¤j¤p
+
+¦pªG±z³q¹L¨Ï¥Î \input{file.psttext_t} ¨Ó¨Ï¥Î¹Ï¤ù¡A¨º»ò±z´NµLªk«ü©w¹Ï¤ùªº¤j
+¤p¤F¡C¹ï¦¹§Ú¦³¨âºØ¸Ñ¨M¤è®×¡C
+
+1. ¦b xfig ¤¤´NÃ¸¨î¦¨¦X¾Aªº¤j¤p¡C­n»ò¦b±z«O¦s¹Ï¤ù®É¡A´N¦b«O¦sµ¡¤f¨º¸Ì§ïÅÜ
+   ¹Ï¤ùªº¤ñ¨Ò¡C¦pªG±z¦b LaTeX ¤åÀÉ¤¤µo²{¹Ï¤ù¤j¤p¤£¦X¾A¡A¨º»ò³o¨âºØ¤èªk³£±o
+   ¶i¤J xfig ­«·s¶i¦æÃ¸¹Ï¡C
+
+2. ¦b LaTeX ¤¤³q¹L¨Ï¥Î \scalebox ©ÎªÌ \resizebox ¨Ó§ïÅÜ¹Ï¤ùªº¤j¤p¡C³o¬O¦b
+   ¹Ï¹³¹Ï§Î³B²z¥] graphics ¤¤¥Î¤_ÁY©ñ¤å¥»©ÎªÌ¹Ï¤ùªº±`¨£¥\¯à¡C¨Ï¥Î»y¥y
+   
+	\scalebox{factor}{object}
+
+   ¥i¥H¥H¥ô¦ó¤ñ¨Ò factor ÁY©ñ object¡Cfactor ¬O¤@­Ó¤ñ¨Ò¼Æ¦r(¤p¤_1¥NªíÁY¤p¡A
+   ¤j¤_1¥Nªí©ñ¤j)¡F¦Ó object «h¬O¥­±`­nÁY©ñªº¤å¥»©ÎªÌ¹Ï¤ù¹ï¶H¡C¤ñ¦p»y¥y 
+
+	\scalebox{2}{ \input{file.pstex_t} }
+
+   ´N¯à°÷±N¹Ï¤ù©ñ¤j¤G­¿¡A³o»PÅX°Ê¦³Ãö( .ps ¥i¥H¬Ý¨ì¡A¦Ó xdvi «h¬Ý¤£¨ì®ÄªG)¡C
+   ÁY©ñÂI°}¦rÅé¥i¯à·|¾É­PÃø¬Ýªºµ²ªG¡A©Ò¥H³Ì¦nÁ×§K¨Ï¥ÎÂI°}¦rÅé¡C»y¥y
+
+   	\resizebox{width}{ht} {stuff}
+
+   «h¯à°÷­«·s½Õ¾ã¹ï¶H stuff ¤j¤p¬° widthx ht¡C¦pªG¨Ï¥Î "!" §@¬°°Ñ¼Æ¡A¨º»ò
+   ´N¯à°÷«O«ù²°®Ø(box)®Ø¬[¤ñ¨Ò¤£ÅÜ¡A¤ñ¦p»y¥y
+
+   	\resizebox{5cm}{!}{fat cat}
+   ´N¯à°÷¨Ï±o fat cat «O«ù 5cm ¼e©M¬ÛÀ³¤ñ¨Òªº°ª«×¡C
+   (ºK¦Û Lamport ªº²Ä129­¶)
+
+============= >8 END of LATEX.AND.XFIG.zh_TW 8<======================
+×}9ë8ó­uß­ô÷½v×M9ó^8ã
